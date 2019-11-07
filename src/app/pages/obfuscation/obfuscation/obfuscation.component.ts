@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-stylometry',
-  templateUrl: './stylometry.component.html',
-  styleUrls: ['./stylometry.component.scss']
+  selector: 'app-obfuscation',
+  templateUrl: './obfuscation.component.html',
+  styleUrls: ['./obfuscation.component.scss']
 })
-export class StylometryComponent implements OnInit {
+export class ObfuscationComponent implements OnInit {
 
+  anonymizedText = '';
 
   ngOnInit(): void {}
 
-  performStylometryAnalysis(leftText, rightText) {}
+  copyTextToAnonymousTextArea(userText: string) {
+    this.anonymizedText = userText;
+  }
 
-  copyFirstTextToClipboard(leftText) {
+  copyAnonymousTextToClipboard() {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
     selBox.style.opacity = '0';
-    selBox.value = leftText;
+    selBox.value = this.anonymizedText;
     document.body.appendChild(selBox);
     selBox.focus();
     selBox.select();
