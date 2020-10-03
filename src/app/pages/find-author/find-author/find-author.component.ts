@@ -1,21 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 
-
-
 @Component({
-  selector: 'app-stylometry',
-  templateUrl: './stylometry.component.html',
-  styleUrls: ['./stylometry.component.scss'],
+  templateUrl: './find-author.component.html',
+  styleUrls: ['./find-author.component.scss'],
   animations: [
     fadeInOnEnterAnimation(),
     fadeOutOnLeaveAnimation({ duration: 1000, delay: 100 })
   ]
 })
+export class FindAuthorComponent implements OnInit {
 
-export class StylometryComponent implements OnInit {
   @ViewChild('textAreaLeft', { static: false}) textAreaLeft: ElementRef;
   @ViewChild('textAreaRight', { static: false}) textAreaRight: ElementRef;
 
